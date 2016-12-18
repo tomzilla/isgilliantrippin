@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
+import Control from './control';
 import { Gill } from '../imports/gill.js';
 
 class App extends Component {
@@ -9,7 +10,8 @@ class App extends Component {
       <div className="content">
         <span>Is Gillian Trippin'?</span>
         <h1>{this.props.trippin ? (this.props.trippin.value ? 'Yes.' : 'No.') : '...'}</h1>
-        <span>{this.props.trippin ? (this.props.trippin.value ? 'She trippin\'' : 'Not yet.') : '...'}</span>
+        <span>{this.props.trippin ? (this.props.trippin.value ? 'She trippin\'.' : 'Not yet.') : '...'}</span>
+        { Meteor.Device.isPhone() ? <Control /> : null }
       </div>
       </div>
     );
